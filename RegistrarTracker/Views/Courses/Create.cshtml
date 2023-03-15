@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+}
+
+@model RegistrarTracker.Models.Course
+
+<h4>Add a new course</h4>
+
+@* <p><strong>NOTE:</strong> You need to have at least one category before you can add an course!</p>
+<p>Go to @Html.ActionLink("this page", "Create", "Categories") to create a category.</p> *@
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.CourseName)
+  @Html.TextBoxFor(model => model.CourseName)
+
+  @Html.LabelFor(model => model.CourseCode)
+  @Html.TextBoxFor(model => model.CourseCode)
+
+  @* @Html.LabelFor(model => model.Category)
+  @Html.DropDownList("CategoryId") *@
+
+  <input type="submit" value="Add new Course" class="btn btn-default" />
+}
+<p>@Html.ActionLink("Show all Courses", "Index")</p>
+<p>@Html.ActionLink("Return Home", "Index", "Home")</p>

@@ -6,5 +6,6 @@ namespace RegistrarTracker.Models
     public int StudentId { get; set; }
     public string StudentName { get; set; }
     public string Enrollment { get; set; }
+    public List<StudentCourse> JoinEntities { get; }
   }
 }
