@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+@model RegistrarTracker.Models.Course
+
+<h2>Edit</h2>
+
+<h4>Edit this course: @Html.DisplayFor(model => model.CourseName)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.CourseId)
+
+  @Html.LabelFor(model => model.CourseName)
+  @Html.EditorFor(model => model.CourseName)
+  @Html.LabelFor(model => model.CourseCode)
+  @Html.EditorFor(model => model.CourseCode)
+
+  <input type="submit" value="Save" />
+}
+<p>@Html.ActionLink("Back to list of courses", "Index")</p>

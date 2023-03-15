@@ -22,7 +22,7 @@ else
     @foreach(StudentCourse join in Model.JoinEntities)
     {
       <li>Course: @join.Course.CourseName</li>
-      @using (Html.BeginForm("DeleteJoin", "Courses"))
+      @using (Html.BeginForm("DeleteJoin", "Students"))
 {
   @Html.Hidden("joinId", @join.StudentCourseId)
   <input type="submit" value="Delete"/>
@@ -34,6 +34,6 @@ else
 
 
 <p>@Html.ActionLink("Back to the list of students", "Index")</p>
-<p>@Html.ActionLink("Add a Course to this student", "AddCourse", new { id = Model.StudentId })</p>
-@* <p>@Html.ActionLink("Edit Student or Category", "Edit", new { id = Model.StudentId })</p>
-<p>@Html.ActionLink("Delete Student", "Delete", new { id = Model.StudentId })</p> *@
+<p>@Html.ActionLink("Add a course to this student", "AddCourse", new { id = Model.StudentId })</p>
+<p>@Html.ActionLink("Edit this student name", "Edit", new { id = Model.StudentId })</p>
+<p>@Html.ActionLink("Delete this Student", "Delete", new { id = Model.StudentId })</p>
