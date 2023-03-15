@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+}
+
+@model RegistrarTracker.Models.Student
+
+<h4>Add a new student</h4>
+
+@* <p><strong>NOTE:</strong> You need to have at least one category before you can add an student!</p>
+<p>Go to @Html.ActionLink("this page", "Create", "Categories") to create a category.</p> *@
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.StudentName)
+  @Html.TextBoxFor(model => model.StudentName)
+
+  @Html.LabelFor(model => model.Enrollment)
+  @Html.TextBoxFor(model => model.Enrollment)
+
+  @* @Html.LabelFor(model => model.Category)
+  @Html.DropDownList("CategoryId") *@
+
+  <input type="submit" value="Add new student" class="btn btn-default" />
+}
+<p>@Html.ActionLink("Show all Students", "Index")</p>
+<p>@Html.ActionLink("Return Home", "Index", "Home")</p>
