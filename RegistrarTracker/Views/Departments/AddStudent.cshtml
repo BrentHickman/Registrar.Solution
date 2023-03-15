@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model RegistrarTracker.Models.Department
+
+<h2>Add a student</h2>
+
+<h4>Add a student to this department: @Html.DisplayFor(model => model.DepartmentName)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.DepartmentId)
+
+    @Html.Label("Select a student")
+    @Html.DropDownList("StudentId")
+
+    <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to list of departments", "Index")</p>
