@@ -1,0 +1,44 @@
+@{
+  Layout = "_Layout";
+}
+
+@model RegistrarTracker.Models.Department;
+@using RegistrarTracker.Models;
+@using System.Collections.Generic;
+
+<h2>Department Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.DepartmentName): @Html.DisplayFor(model => model.DepartmentName)</h3>
+
+@if(@Model.Students.Count == 0)
+{
+  <p>This department does not contain any students</p>
+}
+else
+{
+  <h4>Students enrolled in this Department:</h4>
+  <ul>
+  @foreach(Student student in Model.Students)
+  {
+    string courses = "";
+    @if(student.JoinEntities.Count == 0)
+    {
+      courses = "This student does not have any courses.";
+    }
+    else
+    {
+      List<string> courseList = new List<string>();
+      @foreach(StudentCourse join in student.JoinEntities)
+      {
+        courseList.Add(join.Course.CourseName);
+      }
+      courses = String.Join(", ", courseList);
+    }
+    <li>@student.StudentName | Courses: @courses</li>
+  }
+  </ul>
+}
+<p>@Html.ActionLink("Back to the list of departments", "Index")</p>
+<p>@Html.ActionLink("Add a new student to this department", "AddStudent", new { id = Model.DepartmentId })</p>
+@* <p>@Html.ActionLink("Edit this course", "Edit", new { id = Model.CourseId })</p>  *@
+@* <p>@Html.ActionLink("Delete this Course", "Delete", new { id = Model.CourseId })</p>  *@

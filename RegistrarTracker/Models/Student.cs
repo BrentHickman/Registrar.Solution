@@ -10,6 +10,7 @@ namespace RegistrarTracker.Models
     public string StudentName { get; set; }
     [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:M/d/yyyy}")]
     public DateTime Enrollment { get; set; }
+    public Department Department { get; set; }
     public List<StudentCourse> JoinEntities { get; }
   }
 }
