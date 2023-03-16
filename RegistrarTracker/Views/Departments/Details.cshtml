@@ -12,7 +12,7 @@
 
 @if(@Model.Students.Count == 0)
 {
-  <p>This department does not contain any students</p>
+  <p>There are no students enrolled in this Department</p>
 }
 else
 {
@@ -39,7 +39,6 @@ else
   </ul>
 }
 <p>@Html.ActionLink("Back to the list of departments", "Index")</p>
-<p>@Html.ActionLink("Add a new student to this department", "AddStudent", new { id = Model.DepartmentId })</p>
 @* <p>@Html.ActionLink("Edit this course", "Edit", new { id = Model.CourseId })</p>  *@
 @* <p>@Html.ActionLink("Delete this Course", "Delete", new { id = Model.CourseId })</p>  *@
 <p>@Html.ActionLink("Return Home", "Index", "Home")</p> 

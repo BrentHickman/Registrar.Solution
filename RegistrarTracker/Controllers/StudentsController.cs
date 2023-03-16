@@ -17,7 +17,7 @@ namespace RegistrarTracker.Controllers
     public ActionResult Index()
     {
       List<Student> model = _db.Students
-                            .Include(student => student.Department)
+                            // .Include(student => student.Department)
                             .ToList();
       return View(model);
     }

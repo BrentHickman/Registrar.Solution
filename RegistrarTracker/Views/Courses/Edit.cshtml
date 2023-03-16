@@ -12,11 +12,16 @@
 {
   @Html.HiddenFor(model => model.CourseId)
 
-  @Html.LabelFor(model => model.CourseName)
+  @Html.LabelFor(model => model.CourseName, "Course Name: ")
   @Html.EditorFor(model => model.CourseName)
-  @Html.LabelFor(model => model.CourseCode)
+
+  @Html.LabelFor(model => model.CourseCode, "Course Code: ")
   @Html.EditorFor(model => model.CourseCode)
+
+  @Html.LabelFor(model => model.Department, "Department: ")
+  @Html.DropDownList("DepartmentId")
 
   <input type="submit" value="Save" />
 }
 <p>@Html.ActionLink("Back to list of courses", "Index")</p>
+<p>@Html.ActionLink("Return Home", "Index", "Home")</p>

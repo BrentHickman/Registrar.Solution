@@ -22,17 +22,17 @@ namespace RegistrarTracker.Controllers
     }
     public ActionResult Create()
     {
-      // ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
+      ViewBag.DepartmentId = new SelectList(_db.Departments, "DepartmentId", "DepartmentName");
       return View();
     }
 
     [HttpPost]
     public ActionResult Create(Course course)
     {
-      // if (course.CourseId == 0)
-      // {
-      //   return RedirectToAction("Create");
-      // }
+      if (course.CourseId == 0)
+      {
+        return RedirectToAction("Create");
+      }
       _db.Courses.Add(course);
       _db.SaveChanges();
       return RedirectToAction("Index");

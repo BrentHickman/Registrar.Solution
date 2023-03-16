@@ -11,13 +11,13 @@
 
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.StudentName)
+  @Html.LabelFor(model => model.StudentName, "Student Name: ")
   @Html.TextBoxFor(model => model.StudentName)
 
-  @Html.LabelFor(model => model.Enrollment)
+  @Html.LabelFor(model => model.Enrollment, "Enrollment Date: ")
   @Html.EditorFor(model => model.Enrollment)
 
-  @Html.LabelFor(model => model.Department)
+  @Html.LabelFor(model => model.Department, "Major: ")
   @Html.DropDownList("DepartmentId")
 
   <input type="submit" value="Add new student"/>
