@@ -6,8 +6,8 @@
 
 <h4>Add a new student</h4>
 
-<p><strong>NOTE:</strong> You need to have at least one category before you can add an student!</p>
-<p>Go to @Html.ActionLink("this page", "Create", "Departments") to create a category.</p>
+<p><strong>NOTE:</strong> You need to have at least one Department before you can add a Student!</p>
+<p>Go to @Html.ActionLink("this page", "Create", "Departments") to create a Department.</p>
 
 @using (Html.BeginForm())
 {
@@ -17,8 +17,8 @@
   @Html.LabelFor(model => model.Enrollment)
   @Html.EditorFor(model => model.Enrollment)
 
-  @* @Html.LabelFor(model => model.Category)
-  @Html.DropDownList("CategoryId") *@
+  @Html.LabelFor(model => model.Department)
+  @Html.DropDownList("DepartmentId")
 
   <input type="submit" value="Add new student"/>
 }

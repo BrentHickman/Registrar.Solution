@@ -1,7 +1,7 @@
-using RegistrarTracker.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using RegistrarTracker.Models;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -17,25 +17,29 @@ namespace RegistrarTracker.Controllers
     public ActionResult Index()
     {
       List<Student> model = _db.Students
+                            .Include(student => student.Department)
                             .ToList();
       return View(model);
     }
     public ActionResult Create()
     {
-      // ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
+      ViewBag.DepartmentId = new SelectList(_db.Departments, "DepartmentId", "DepartmentName");
       return View();
     }
 
     [HttpPost]
     public ActionResult Create(Student student)
     {
-      // if (student.CourseId == 0)
-      // {
-      //   return RedirectToAction("Create");
-      // }
+      if (student.DepartmentId == 0)
+      {
+        return RedirectToAction("Create");
+      }
+      else
+      {
       _db.Students.Add(student);
       _db.SaveChanges();
       return RedirectToAction("Index");
+      }
     }
 
     public ActionResult Details(int id)
@@ -49,7 +53,7 @@ namespace RegistrarTracker.Controllers
 
     public ActionResult AddCourse(int id)
     {
-      Student thisStudent = _db.Students.FirstOrDefault(students => students.StudentId == id);
+      Student thisStudent = _db.Students.FirstOrDefault(student => student.StudentId == id);
       ViewBag.CourseId = new SelectList(_db.Courses, "CourseId", "CourseName");
       return View(thisStudent);
     }

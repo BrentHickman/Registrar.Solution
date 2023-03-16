@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System;
 using System.ComponentModel.DataAnnotations;
 
+
+
 namespace RegistrarTracker.Models
 {
   public class Student
@@ -10,6 +12,7 @@ namespace RegistrarTracker.Models
     public string StudentName { get; set; }
     [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:M/d/yyyy}")]
     public DateTime Enrollment { get; set; }
+    public int DepartmentId { get; set; }
     public Department Department { get; set; }
     public List<StudentCourse> JoinEntities { get; }
   }

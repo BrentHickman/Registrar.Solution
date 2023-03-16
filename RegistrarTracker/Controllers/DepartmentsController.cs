@@ -1,9 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using RegistrarTracker.Models;
 using System.Collections.Generic;
 using System.Linq;
+
+
 
 namespace RegistrarTracker.Controllers
 {
@@ -43,12 +44,12 @@ namespace RegistrarTracker.Controllers
                                 .FirstOrDefault(department => department.DepartmentId == id);
       return View(thisDepartment);
     }
-    public ActionResult AddStudent(int id)
-    {
-      Department thisDepartment = _db.Departments.FirstOrDefault(departments => departments.DepartmentId == id);
-      ViewBag.StudentId = new SelectList(_db.Students, "StudentId", "StudentName");
-      return View(thisDepartment);
-    }
+    // public ActionResult AddStudent(int id)
+    // {
+    //   Department thisDepartment = _db.Departments.FirstOrDefault(departments => departments.DepartmentId == id);
+    //   ViewBag.StudentId = new SelectList(_db.Students, "StudentId", "StudentName");
+    //   return View(thisDepartment);
+    // }
     // [HttpPost]
     // public ActionResult AddStudent(Student student)
     // {
@@ -57,7 +58,7 @@ namespace RegistrarTracker.Controllers
     //     return RedirectToAction("Create", "Students");
     //   }
       
-    //   _db.Students.Update(student.DepartmentId);
+    //   _db.Students.Update(student);
     //   _db.SaveChanges();
     //   return RedirectToAction("Index");
     // }
